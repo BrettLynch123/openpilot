@@ -100,7 +100,7 @@ class CarState(CarStateBase):
     if ret.cruiseState.speed != 0:
       is_metric = cp.vl["BODY_CONTROL_STATE_2"]["UNITS"] in (1, 2)
       conversion_factor = CV.KPH_TO_MS if is_metric else CV.MPH_TO_MS
-      ret.cruiseState.speedCluster = cluster_set_speed * conversion_factor
+      ret.cruiseState.speedCluster = cluster_set_speed * conversion_factor * 1.04
 
     cp_acc = cp_cam if self.CP.carFingerprint in (TSS2_CAR - RADAR_ACC_CAR) else cp
 
